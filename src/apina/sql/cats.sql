@@ -35,9 +35,3 @@ WHERE id = :id
 SELECT id
 FROM guestbook
 WHERE id = (select max(id) from guestbook)
-
--- name: get-max-cat
--- Gives the last id, so there will not be duplicates
-SELECT id
-FROM cat
-WHERE id = (select max(id) from cat)

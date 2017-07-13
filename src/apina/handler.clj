@@ -7,7 +7,8 @@
             [compojure.route :as route]
             [apina.routes.home :refer [home-routes]]
             [yesql.core :refer [defqueries]]
-            [clojure.pprint :refer [pprint]]))
+            [clojure.pprint :refer [pprint]]
+            [random-string.core]))
 
 (defn init []
   (println "apina is starting"))
@@ -32,8 +33,3 @@
 
 (defqueries "apina/sql/cats.sql"
             {:connection db-spec})
-
-
-(pprint (get-cats))
-
-(+ 1 4)

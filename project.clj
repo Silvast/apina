@@ -7,7 +7,9 @@
                  [ring-server "0.4.0"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
                  [yesql "0.5.3"]
-                 [clj-time "0.13.0"]]
+                 [clj-time "0.13.0"]
+                 [org.clojure/data.generators "0.1.2"]
+                 [random-string "0.1.0"]]
   :plugins [[lein-ring "0.8.12"]]
   :ring {:handler apina.handler/app
          :init apina.handler/init

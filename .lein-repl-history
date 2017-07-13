@@ -13,3 +13,21 @@
 (defqueries "/src/apina/sql/cats.sql"
             {:connection db-spec})
 exit
+(char-array 29)
+(string)
+(require '[org.clojure/data.generators "0.1.2"])
+(require '(org.clojure/data.generators))
+(org.clojure/data.generators/string)
+(org.clojure/data.generators/string f 2)
+(char-array 29)
+(apply str (char-array 29))
+(defn rand-string [chars n] (->> #(rand-nth (vec chars)) (repeatedly n) (apply str)))
+(rand-string [(char-array 5) 5])
+(rand-string [(char-array 5) 5)
+(rand-string (char-array 5) 5)
+(rand-string "jljl" 5)
+(rand-string "jljl" 2)
+exit
+(require '(random-string))
+(random-string.core/string)
+exit
