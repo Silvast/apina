@@ -1,0 +1,15 @@
+(def score {:id 17})
+(:id score)
+  (:require '[yesql.core :refer [defqueries]])
+(def db-spec {:classname "org.postgresql.Driver"
+              :subprotocol "postgresql"
+              :subname "//localhost:5432/myDatabaseName"
+              :user "clojuredb"})
+(defqueries "apina/sql/cats.sql"
+            {:connection db-spec})
+(:require '[yesql.core :refer [defqueries]])
+(defqueries "src/apina/sql/cats.sql"
+            {:connection db-spec})
+(defqueries "/src/apina/sql/cats.sql"
+            {:connection db-spec})
+exit

@@ -1,13 +1,12 @@
 (ns apina.routes.home
   (:require [compojure.core :refer :all]
             [apina.views.layout :as layout]
-            [hiccup.form :refer :all]))
+            [hiccup.form :refer :all]
+            [apina.models.db :as db]))
 
 (defn show-guests []
   [:ul.guests
-   (for [{:keys [message name timestamp]}
-         [{:message "Howdy" :name "Bob" :timestamp nil}
-          {:message "Hello" :name "Bob" :timestamp nil}]]
+   (for [{:keys [message name timestamp]} (db/get-messages)]
      [:li
       [:blockquote message]
       [:p "-" [:cite name]]
@@ -36,7 +35,7 @@
              [:br]
              (submit-button "comment"))))
 
-(defn save-message [name message]
+(defn save-amessage [name message]
   (cond
     (empty? name)
     (home name message "Some dummy forgot to leave a name")
@@ -45,10 +44,10 @@
     :else
     (do
       (println name message)
+      (db/save-message name message)
       (home))))
 
 
 (defroutes home-routes
            (GET "/" [] (home))
-           (POST "/" [name message] (save-message name message)))
-
+           (POST "/" [name message] (save-amessage name message)))
