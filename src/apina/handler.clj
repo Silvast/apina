@@ -8,7 +8,8 @@
             [apina.routes.home :refer [home-routes]]
             [yesql.core :refer [defqueries]]
             [clojure.pprint :refer [pprint]]
-            [random-string.core]))
+            [random-string.core]
+            [hiccup.bootstrap.middleware :refer :all]))
 
 (defn init []
   (println "apina is starting"))
@@ -23,7 +24,8 @@
 (def app
   (-> (routes home-routes app-routes)
       (handler/site)
-      (wrap-base-url)))
+      (wrap-base-url)
+      (wrap-bootstrap-resources)))
 
 (def db-spec {:classname "org.postgresql.Driver"
               :subprotocol "postgresql"

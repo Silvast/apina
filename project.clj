@@ -4,6 +4,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [compojure "1.5.2"]
                  [hiccup "1.0.5"]
+                 [hiccup-bootstrap "0.1.2"]
                  [ring-server "0.4.0"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
                  [yesql "0.5.3"]

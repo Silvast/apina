@@ -25,12 +25,18 @@
   []
   (swap! currentmaxid inc))
 
+  (as->  (get-max-id) v
+                   (into {} v)
+                   (get v :id))
+
 (defn save-message
   [name message]
-  (add-message {:id (addcurrentmaxid)
+  (let [maxid  (as->  (get-max-id) v
+                   (into {} v)
+                   (get v :id))]
+    (add-message {:id (inc maxid)
                 :timestamp (c/to-sql-date (new java.util.Date))
                 :name name
-                :message message}))
-
-;;to test
-;(save-message "Janne" "Heissulivei!")
+                :message message})))
+;to test
+;(save-message "Anne-Mari" "Jee, pääsen konffaan!")
