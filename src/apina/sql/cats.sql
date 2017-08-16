@@ -6,7 +6,7 @@ FROM cat
 -- name: create-guestbook
 -- Inserts all the cats.
 CREATE TABLE guestbook (
-    id INTEGER PRIMARY KEY,
+    id id SERIAL UNIQUE PRIMARY KEY,
     timestamp DEFAULT CURRENT_TIMESTAMP,
     name TEXT,
     message TEXT
@@ -16,8 +16,8 @@ CREATE TABLE guestbook (
 CREATE INDEX timestamp_index ON guestbook (timestamp)
 
 -- name: add-message
-INSERT INTO guestbook (id, timestamp, name, message)
-VALUES ( :id, :timestamp , :name, :message )
+INSERT INTO guestbook (timestamp, name, message)
+VALUES ( :timestamp , :name, :message )
 RETURNING :message
 
 -- name: get-messages
