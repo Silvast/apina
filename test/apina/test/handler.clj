@@ -14,7 +14,7 @@
     (let [response (app (request :get "/invalid"))]
       (is (= (:status response) 404)))))
 
-
+;; Testing 
 ;; test that the saving of messages works
 ; (deftest savingmessages
 ;   (testing "testing saving a message"
