@@ -31,3 +31,76 @@ exit
 (require '(random-string))
 (random-string.core/string)
 exit
+(def body {)
+  "data": {
+    "name": "Nakkilan kunta",
+    "email": "test@nakkila.fi",
+    "address": "PL 1, Nakkila",
+    "businessId": "0135662-3"
+  }
+(def body {data 1})
+(def body {:data 1})
+(def body {:data {:name "Nakkila"}})
+(:data (body))
+body
+(body :data)
+((body :data) :name))
+((body :data) :name)
+(println "yo")
+(def data {)
+  "name": "Nakkila",
+  "email": "test@test.com",
+  "address": "PL1 000 Nakkila",
+  "businessId": "123"
+(def data {"name":"Nakkila","email":"test@test.com","address":"PL1 000 Nakkila","businessId":"123"})
+(def data {"name":"Nakkila"})
+(def data {:name "Nakkila"})
+(def data {:name Nakkila, :email test@test.com, :address PL1 000 Nakkila, :businessId 123})
+(def data {:name Nakkila})
+(def data {:name "Nakkila"})
+(require '[cheshire.core :refer :all])
+(require '[cheshire.core :as c])
+ (require '[clojure.set :as cs])
+ (require '[cheshire.core :as c])
+exit
+ (require '[cheshire.core :as c])
+(c/generate-string {:foo "bar" :baz 5})
+(c/parse-string {"name":"Nakkila","email":"test@test.com","address":"PL1 000 Nakkila","businessId":"123"})
+(c/parse-string "{"name":"Nakkila","email":"test@test.com","address":"PL1 000 Nakkila","businessId":"123"}")
+(c/parse-string "{"name":"Nakkila","email":"test@test.com","address":"PL1 000 Nakkila","businessId":"123"}" true)
+(def json {"name":"Nakkila","email":"test@test.com","address":"PL1 000 Nakkila","businessId":"123"})
+(def json "{"name":"Nakkila","email":"test@test.com","address":"PL1 000 Nakkila","businessId":"123"}")
+json
+(def data )
+(def data {"name":"Nakkila","email":"test@test.com","address":"PL1 000 Nakkila","businessId":"123"})
+(def data {"name":"Nakkila","email":"test@test.com","address":"PL1 000 Nakkila","businessId":"123"} )
+(c/generate-string {"name":"Nakkila","email":"test@test.com","address":"PL1 000 Nakkila","businessId":"123"})
+(c/generate-string {:name "Nakkila"})
+(c/generate-string {:name "Nakkia"})
+(c/generate-string {:name "Nakkia" :spos "testi@ansku.com"})
+(c/parse-string {:nimi "Espoo"})
+(c/parse-string {"nimi":"Espoo"})
+(c/parse-string "{"nimi":"Espoo"}")
+(type (:name :email :address :businessId))
+(keys (:name :email :address :businessId))
+(type {:name :email :address :businessId})
+(seq #{:a :b :c :d})
+(keys {:k 2 :b jee})
+(keys {:k 2 :b "jee"})
+(contains? :k (:k :b))
+(type (keys {:k 2 :b "jee"}))
+(some :k (:k :b))
+(some :k '(:k :b))
+(into () (keys {:k 2 :b "jee"}))
+(type (into () (keys {:k 2 :b "jee"})))
+(set (keys {:k 2 :b "jee"}))
+(contains #{:k :b} (set (keys {:k 2 :b "jee"})))
+(contains? #{:k :b} (set (keys {:k 2 :b "jee"})))
+(contains? :b (set (keys {:k 2 :b "jee"})))
+(= 1 1)
+(= #(:k :b) (set (keys {:k 2 :b "jee"})))
+(= #{:k :b} (set (keys {:k 2 :b "jee"})))
+(keyword a b c d)
+(keyword [a b c d])
+(keyword (a b c d))
+(seq {:a :b :c})

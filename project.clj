@@ -10,7 +10,9 @@
                  [yesql "0.5.3"]
                  [clj-time "0.13.0"]
                  [org.clojure/data.generators "0.1.2"]
-                 [random-string "0.1.0"]]
+                 [random-string "0.1.0"]
+                 [cheshire "5.8.0"]
+                 [clj-http "3.7.0"]]
   :plugins [[lein-ring "0.8.12"]]
   :ring {:handler apina.handler/app
          :init apina.handler/init
